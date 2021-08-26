@@ -1,9 +1,10 @@
 module.exports = {
   "env": {
     "node": true,
-    "es2020":  true
+    "es2020":  true,
+		"jest": true
   },
-  "extends": "eslint:recommended",
+  "extends": "airbnb:recommended",
   "rules": {
     "no-empty": "error",
     "no-multiple-empty-lines": "warn",
