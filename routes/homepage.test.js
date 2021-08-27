@@ -6,10 +6,12 @@ const mockMorgan = jest.fn((req, res, next) => next());
 beforeAll(() => {
 	jest.mock('morgan', () => () => mockMorgan);
 	app = request(require('../app'));
+	jest.mock('./', () => require('./homepage'));
 });
 
 afterAll(() => {
 	jest.unmock('morgan');
+	jest.unmock('./');
 });
 
 describe('GET', () => {

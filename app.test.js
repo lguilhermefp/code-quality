@@ -13,11 +13,13 @@ describe('errors', () => {
 	beforeEach(() => {
 		jest.resetModules();
 		process.env = { ...OLD_ENV };
+		jest.mock('./routes', () => (req, res, next) => next());
 	});
 
 	afterAll(() => {
 		jest.unmock('morgan');
 		process.env = OLD_ENV;
+		jest.unmock('./routes');
 	});
 
 	it('should return a 404 for a missing page in test', async () => {

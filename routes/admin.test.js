@@ -10,9 +10,11 @@ beforeAll(() => {
 		select: () => ({ table: mockTable })
 	}));
 	app = request(require('../app'));
+	jest.mock('./', () => require('./admin'));
 });
 
 afterAll(() => {
+	jest.unmock('./');
 	jest.unmock('morgan');
 });
 

@@ -5,7 +5,7 @@ const _ = require('lodash');
 const reservations = require('../lib/reservations');
 
 /* GET admin listing. */
-router.get('/', function(req, res, next) {
+router.get('/admin', function(req, res, next) {
   reservations.fetch()
     .then(reservations => {
       res.render('admin', {

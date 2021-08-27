@@ -11,10 +11,12 @@ beforeAll(() => {
 		insert: mockInsert,
 	}));
 	app = request(require('../app'));
+	jest.mock('./', () => require('./reservations'));
 });
 
 afterAll(() => {
 	jest.unmock('morgan');
+	jest.unmock('./');
 });
 
 describe('GET', () => {
